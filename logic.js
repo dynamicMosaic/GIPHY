@@ -7,32 +7,34 @@ $("#submitBtn").on("click", function (e) {
 
 
 function getGiphy (searchTerm){
+
     var queryUrl = 'http://api.giphy.com/v1/gifs/search?q=' + searchTerm + "&api_key=pz33gJPdqW5TCFHzPg8rmN7dUXUvNsFf" + '&limit=10'
     
     $.ajax({
         url: queryUrl,
         method: 'GET'
     }).then(function(response) {
-        // console.log(response);
-        
-        $("#display").append("<button>" + searchTerm + "</button>")
-        
-        console.log(searchTerm)
-        
-        // console.log(response.name)
+       
     });
-    
 }
+
+$("#display").on("click", function (){
+    var searchTerm = $("#addGif").val()
+    console.log(searchTerm)
+    $("#display").append("<br><button>" + searchTerm + "</button><br>")
+
+    
+})
+
 getGiphy ()
 
-var searchTerm = $("#submitBtn").val()
 
 
 // Query URL
-    var searchTerm = ""
-    var gifRating = ""
-    var xhr = $.get('' + searchTerm + "&api_key=" + authKey + '&limit=10');
-    xhr.done(function(data) { console.log("success got data", data); });
+    // var searchTerm = ""
+    // var gifRating = ""
+    // var xhr = $.get('' + searchTerm + "&api_key=" + authKey + '&limit=10');
+    // xhr.done(function(data) { console.log("success got data", data); });
 
 
 // $().on("click", function(e)
